@@ -1,0 +1,34 @@
+{
+  "name": "myori-thermal",
+  "version": "1.0.0",
+  "description": "MyOri Thermal Printer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "repository": "",
+  "keywords": [
+    "myori",
+    "thermal",
+    "printer"
+  ],
+  "author": "Faizul",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.3.0",
+    "@electron-forge/maker-deb": "^6.3.0",
+    "@electron-forge/maker-rpm": "^6.3.0",
+    "@electron-forge/maker-squirrel": "^6.3.0",
+    "@electron-forge/maker-zip": "^6.3.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^6.3.0",
+    "electron": "^9.1.0"
+  },
+  "dependencies": {
+    "@alvarosacari/electron-pos-printer": "^1.2.6",
+    "axios": "^1.4.0",
+    "electron-fetch": "^1.9.1",
+    "electron-pos-printer": "^1.2.0",
+    "electron-squirrel-startup": "^1.0.0"
+  }
+}
