@@ -2,8 +2,8 @@
 const { app, BrowserWindow, ipcMain, shell, dialog, Menu } = require('electron')
 const path = require("path");
 
-const menu = Menu.buildFromTemplate([])
-Menu.setApplicationMenu(menu)
+// const menu = Menu.buildFromTemplate([])
+// Menu.setApplicationMenu(menu)
 
 let mainWindow
 
