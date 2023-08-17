@@ -36,23 +36,17 @@ document.addEventListener('DOMContentLoaded', e => {
 
 
   function getQR() {
-    var cmd = process.argv[1];
-
-    if (cmd == '--squirrel-firstrun') {
-      remote.getCurrentWindow().close()
-    }
-    
     fetch('https://ssstaging.myori.my/api/getQR').then(res => res.json())
     // fetch('http://127.0.0.1:8000/api/getQR').then(res => res.json())
     .then(json => {
       const data_b64 = JSON.parse(json.data.b64);
       const fileUrl = data_b64.b64;
-      const copies = data_b64.copies;
+      let copies = data_b64.copies;
       if (fileUrl) {
         const options = {
           preview: false,
           margin: '0 0 0 0',
-          copies: 1,
+          copies: 4,
           printerName: 'Xprinter XP-420B',
           timeOutPerLine: 1000,
           landscape: true,
@@ -69,16 +63,20 @@ document.addEventListener('DOMContentLoaded', e => {
           }
         ];
 
-        for (let index = 0; index < copies; index++) {
+        let i = 0;
+        for (let index = 0; index < parseInt(copies); index++) {
           PosPrinter.print(data, options)
           .then(res => {
-            if ((index + 1) == copies) {
-              remote.getCurrentWindow().close()
+            i++;
+            if (i == parseInt(copies)) {
+              setTimeout(function () {
+                remote.getCurrentWindow().close()
+              }, (copies+1).padEnd(4,"0"))
             }
           })
           .catch((error) => {
-              console.error(error);
-            });
+            console.error(error);
+          });
         }
       }
     })
