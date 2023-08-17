@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', e => {
         const options = {
           preview: false,
           margin: '0 0 0 0',
-          copies: 4,
+          copies: 1,
           printerName: 'Xprinter XP-420B',
           timeOutPerLine: 1000,
           landscape: true,
