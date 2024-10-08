@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', e => {
 
 
   function getQR() {
-    fetch('https://ssstaging.myori.my/api/getQR').then(res => res.json())
+    fetch('https://smartsecure.myori.my/api/getQR').then(res => res.json())
     // fetch('http://127.0.0.1:8000/api/getQR').then(res => res.json())
     .then(json => {
       const data_b64 = JSON.parse(json.data.b64);
